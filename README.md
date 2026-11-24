@@ -1,4 +1,4 @@
-# Meridian Corporate Bank — Profitability & Credit Risk Analytics (Power BI)
+# Finance — Profitability & Credit Risk Analytics (Power BI)
 
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 ![DAX](https://img.shields.io/badge/DAX-44_Measures_%7C_Calc_Groups-0078D4?style=for-the-badge)
