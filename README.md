@@ -48,7 +48,7 @@ Industry-level drill-down (`Industry` → `ClientName`) surfacing High-Risk Expo
 
 ---
 
-## Data Model Architecture
+## Data Model 
 
 Structured as a Kimball Star Schema (`1:*` single-direction filters) connecting `Fact_Banking_Monthly` (**2,880 monthly facility snapshots**) to 4 dimensions (`Dim_Date`, `Dim_Client`, `Dim_Product`, `Dim_Branch`), supported by disconnected analytical tables (`Profitability_Bridge`, `Time Period` Calculation Group, and `Z_Measures`).
 
@@ -58,6 +58,83 @@ Structured as a Kimball Star Schema (`1:*` single-direction filters) connecting 
 <br>
 
 ![Data Model Schema](./docs/Data%20Model.PNG)
+
+## 🏗️ Data Architecture & Star Schema
+
+```mermaid
+erDiagram
+    Dim_Date ||--o{ Fact_Banking_Monthly : "DateKey (1:* Single)"
+    Dim_Client ||--o{ Fact_Banking_Monthly : "ClientKey (1:* Single)"
+    Dim_Product ||--o{ Fact_Banking_Monthly : "ProductKey (1:* Single)"
+    Dim_Branch ||--o{ Fact_Banking_Monthly : "BranchKey (1:* Single)"
+
+    Fact_Banking_Monthly {
+        int DateKey FK "YYYYMMDD (Month-End)"
+        string FacilityID "MCB0011 to MCB1202 (240 unique)"
+        int ClientKey FK "1 to 120"
+        int ProductKey FK "1 to 4"
+        int BranchKey FK "1 to 8"
+        decimal OpeningPrincipal
+        decimal DisbursementAmount
+        decimal PrincipalRepayment
+        decimal ClosingPrincipal
+        decimal AveragePrincipal
+        decimal AverageEarningAssets
+        decimal AverageFundingBalance
+        decimal FacilityLimit
+        decimal AccruedInterestReceivable
+        decimal InterestIncome
+        decimal InterestExpense
+        decimal FeeIncome
+        decimal OperatingExpense
+        decimal ProvisionExpense
+        decimal TaxExpense
+        decimal OverduePrincipal
+        int DaysPastDue
+        string RiskGrade "Low, Medium, High"
+    }
+
+    Dim_Date {
+        date Date PK "2025-01-01 to 2025-12-31 (365 rows)"
+        int DateKey UK "YYYYMMDD (Sorted)"
+        int Year "2025"
+        string Quarter "Q1 to Q4 (Sort by QuarterNumber)"
+        int QuarterNumber "1 to 4"
+        string Month "Jan to Dec (Sort by MonthNumber)"
+        int MonthNumber "1 to 12"
+    }
+
+    Dim_Client {
+        int ClientKey PK "1 to 120"
+        string ClientName "Corporate Entity Name"
+        string Industry "6 Industries"
+        string ClientSegment "Large, Mid, Emerging Corporate"
+    }
+
+    Dim_Product {
+        int ProductKey PK "1 to 4"
+        string ProductName "4 Credit Products"
+        string ProductCategory "Revolving, Term, Short Term"
+    }
+
+    Dim_Branch {
+        int BranchKey PK "1 to 8"
+        string BranchName "8 Corporate Branches"
+        string City "8 Indian Cities"
+        string Region "West, North, South, East"
+    }
+
+    Profitability_Bridge {
+        string Stage "7 Waterfall Stages (Disconnected)"
+        int SortOrder "1 to 7"
+    }
+
+    Time_Period_Calc_Group {
+        string Time_Period "Normal, MTD, QTD, R3M"
+    }
+```
+
+---
 
 - **`Fact_Banking_Monthly`** (2,880 rows × 23 cols): Monthly grain (`DateKey`, `FacilityID`) tracking opening/closing balances, disbursements, repayments, P&L flows, overdue principal, DPD, and risk grades.
 - **`Dim_Date`** (365 rows): DAX calendar table (`2025-01-01` to `2025-12-31`), marked as official Date Table with sort keys.
