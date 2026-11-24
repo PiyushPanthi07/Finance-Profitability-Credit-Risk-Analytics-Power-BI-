@@ -52,7 +52,6 @@ Industry-level drill-down (`Industry` → `ClientName`) surfacing High-Risk Expo
 
 Structured as a Kimball Star Schema (`1:*` single-direction filters) connecting `Fact_Banking_Monthly` (**2,880 monthly facility snapshots**) to 4 dimensions (`Dim_Date`, `Dim_Client`, `Dim_Product`, `Dim_Branch`), supported by disconnected analytical tables (`Profitability_Bridge`, `Time Period` Calculation Group, and `Z_Measures`).
 
-<details>
 
 <br>
 
