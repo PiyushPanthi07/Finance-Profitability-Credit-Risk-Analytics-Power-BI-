@@ -58,4 +58,23 @@ Returns green when net profit meets or exceeds the benchmark; otherwise, returns
 
 ```dax
 Net Profit Color =
-VAR
+VAR BenchmarkValue = [Net Profit Benchmark]
+VAR CurrentValue = [Net Profit]
+VAR VariancePct =
+    DIVIDE(CurrentValue - BenchmarkValue, BenchmarkValue)
+RETURN
+    IF(
+        VariancePct >= 0,
+        "#15803D",
+        "#B91C1C"
+    )
+```
+
+### Color Reference
+
+| Condition | Hex Color | Meaning |
+|---|---|---|
+| Variance ≥ 0% | `#15803D` | Green — Positive |
+| Variance < 0% | `#B91C1C` | Red — Negative |
+
+**Power BI Implementation:** Apply these measures through Conditional Formatting → Font color or Background color → Format style: Field value.
