@@ -1,4 +1,4 @@
-## 4. Conditional Formatting Measures
+## 3. Conditional Formatting Measures
 
 These measures dynamically assign colors to financial KPI visuals based on their percentage variance against the respective benchmarks.
 
