@@ -13,20 +13,25 @@ An executive 3-page Power BI decision-support dashboard analysing a **₹20.74 B
 
 ## Dashboard Showcase
 
+## Dashboard Showcase
+
 ### Page 1 — Executive Profitability & Risk Overview
+
 Tracks top-to-bottom P&L performance, lending spread gauges (NIM, Cost of Funds, Yield on Advances), a 7-stage Profitability Bridge waterfall, and portfolio risk exposure boxes with dynamic time-intelligence slicers.
 
-![Page 1 — Profitability Overview](./assets/01_dashboard_profitability.png)
+![Page 1 — Profitability Overview](./assets/Finance%20Dashboard-%201.Profitability.PNG)
 
 ### Page 2 — Facility-Level Performance & Risk
+
 Facility-by-facility operational matrix (`MCB0011`–`MCB1202`) highlighting Loan Book, Net Profit trends, Provision charges, colour-coded Risk Grades, Days Past Due tiers, and inline data bars for Overdue Principal and Facility Limits.
 
-![Page 2 — Facility Details](./assets/02_dashboard_facility_details.png)
+![Page 2 — Facility Details](./assets/Finance%20Dashboard-%202.Facility%20Details.PNG)
 
 ### Page 3 — Client Portfolio Summary
+
 Industry-level drill-down (`Industry` → `ClientName`) surfacing High-Risk Exposure %, NIM compression, overdue balances, and provisioning intensity across every corporate borrower.
 
-![Page 3 — Client Details](./assets/03_dashboard_client_details.png)
+![Page 3 — Client Details](./assets/Finance%20Dashboard-%203.Client%20Details.PNG)
 
 ---
 
