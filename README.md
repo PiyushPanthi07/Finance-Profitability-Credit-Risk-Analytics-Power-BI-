@@ -13,8 +13,6 @@ An executive 3-page Power BI decision-support dashboard analysing a **₹20.74 B
 
 ## Dashboard Showcase
 
-## Dashboard Showcase
-
 ### Page 1 — Executive Profitability & Risk Overview
 
 Tracks top-to-bottom P&L performance, lending spread gauges (NIM, Cost of Funds, Yield on Advances), a 7-stage Profitability Bridge waterfall, and portfolio risk exposure boxes with dynamic time-intelligence slicers.
@@ -59,7 +57,7 @@ Structured as a Kimball Star Schema (`1:*` single-direction filters) connecting 
 
 <br>
 
-![Data Model Schema](./assets/04_data_model_schema.png)
+![Data Model Schema](./docs/04_Data%20Model.png)
 
 - **`Fact_Banking_Monthly`** (2,880 rows × 23 cols): Monthly grain (`DateKey`, `FacilityID`) tracking opening/closing balances, disbursements, repayments, P&L flows, overdue principal, DPD, and risk grades.
 - **`Dim_Date`** (365 rows): DAX calendar table (`2025-01-01` to `2025-12-31`), marked as official Date Table with sort keys.
