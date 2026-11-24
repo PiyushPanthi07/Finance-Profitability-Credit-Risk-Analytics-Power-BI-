@@ -1,0 +1,6 @@
+~$*.xlsx
+*.tmp
+.DS_Store
+__MACOSX
+
+docs/Meridian Corporate Bank Power BI Project.pdf
