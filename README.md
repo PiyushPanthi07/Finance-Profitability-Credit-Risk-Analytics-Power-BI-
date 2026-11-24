@@ -57,7 +57,7 @@ Structured as a Kimball Star Schema (`1:*` single-direction filters) connecting 
 
 <br>
 
-![Data Model Schema](./docs/04_Data%20Model.png)
+![Data Model Schema](./docs/Data%20Model.png)
 
 - **`Fact_Banking_Monthly`** (2,880 rows × 23 cols): Monthly grain (`DateKey`, `FacilityID`) tracking opening/closing balances, disbursements, repayments, P&L flows, overdue principal, DPD, and risk grades.
 - **`Dim_Date`** (365 rows): DAX calendar table (`2025-01-01` to `2025-12-31`), marked as official Date Table with sort keys.
