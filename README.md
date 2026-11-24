@@ -57,7 +57,7 @@ Structured as a Kimball Star Schema (`1:*` single-direction filters) connecting 
 
 ![Data Model Schema](./docs/Data%20Model.PNG)
 
-## 🏗️ Data Architecture & Star Schema
+##  Data Architecture & Star Schema
 
 ```mermaid
 erDiagram
